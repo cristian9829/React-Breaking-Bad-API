@@ -2,6 +2,14 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { async } from 'q';
 
+function Frase (props) {
+  return(
+    <div className="frase">
+      <h1>{props.frase.quote}</h1>
+      <p>- {props.frase.author}</p>
+    </div>
+  )
+}
 
 function App (){
   const [ frase, obtenerFrase ] = useState({})
@@ -21,9 +29,12 @@ function App (){
     }, []
   )
 
-  console.log(frase)
   return(
-    <h1>Hola </h1>
+    <div className="contenedor">
+      <Frase
+        frase= {frase}
+      />
+    </div>
   )
 }
 
